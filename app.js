@@ -16,6 +16,9 @@ const fetchDadJoke = async () => {
         "User-Agent": "learning app",
       },
     });
+    if (!resp.ok) {
+      throw new Error("there was an error");
+    }
     const data = await resp.json();
     result.textContent = data.joke;
   } catch (error) {
